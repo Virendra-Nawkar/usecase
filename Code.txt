@@ -1,3 +1,6 @@
+
+This file is edited in brach DEV
+
 # Code to Create a User Group
  az group create --name virendra --location centralus
 
@@ -29,4 +32,5 @@
  az vm create --resource-group CDPInterns-2474017-RG --name vir-linuxvm --location centralus --image Ubuntu2204 --size Standard_B1s --admin-username vir --admin-password "Vir@123456789"
 
 # Delete a VM
+
  az vm delete --resource-group CDPInterns-2474017-RG --name vir-linuxvm --yes
