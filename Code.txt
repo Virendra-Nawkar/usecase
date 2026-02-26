@@ -1,0 +1,32 @@
+# Code to Create a User Group
+ az group create --name virendra --location centralus
+
+# code to create a V-NET and Subnet
+ az network vnet create --resource-group CDPInterns-2474017-RG --name virnet --subnet-name virsubnet 
+
+# Create a Public IP address
+ az network public-ip create --resource-group CDPInterns-2474017-RG --name publicip
+
+#Create a NSG 
+ az network nsg create --resource-group CDPInterns-2474017-RG --name virnsg 
+
+# Create a NIC - Network interface Controller && IP-Forwarding
+ az network nic create --resource-group CDPInterns-2474017-RG --vnet-name virnet --subnet virsubnet --name virnic --ip-forwarding --network-security-group virnsg 
+
+# Create VM with all the exiting groups and VNET 
+ az vm create --resource-group CDPInterns-2474017-RG --name vir-vm --location centralus --nics virnic --image Ubuntu2204 --size Standard_B1s --admin-username vir --admin-password "vir@123456789"
+
+# Get list of all running Resources
+ az resource list -o table
+
+# Delete all the running
+ az group delete --name CDPInterns-2474017-RG --y
+
+# List all the VM
+ az vm list -o table
+
+# Create a VM
+ az vm create --resource-group CDPInterns-2474017-RG --name vir-linuxvm --location centralus --image Ubuntu2204 --size Standard_B1s --admin-username vir --admin-password "Vir@123456789"
+
+# Delete a VM
+ az vm delete --resource-group CDPInterns-2474017-RG --name vir-linuxvm --yes
